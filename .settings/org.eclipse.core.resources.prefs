@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/com/userkanri/servlet/ChangePassServlet.java=UTF-8
+encoding//src/com/userkanri/servlet/DeleteServlet.java=UTF-8
+encoding//src/com/userkanri/servlet/DoChangePassword.java=UTF-8
+encoding//src/com/userkanri/servlet/DoLoginServlet.java=UTF-8
+encoding//src/com/userkanri/servlet/HomeServlet.java=UTF-8
+encoding//src/com/userkanri/servlet/LoginServlet.java=UTF-8
+encoding//src/com/userkanri/servlet/MemberServlet.java=UTF-8
+encoding//src/com/userkanri/servlet/UserInfoServlet.java=UTF-8
+encoding//src/com/userkanri/servlet/UserListServlet.java=UTF-8
