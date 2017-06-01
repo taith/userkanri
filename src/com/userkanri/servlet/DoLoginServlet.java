@@ -75,8 +75,13 @@ public class DoLoginServlet extends HttpServlet {
 		} else {
 			HttpSession session = request.getSession();
 			UserUtil.storeLoginedUser(session, user);
+			if(user.getEmail().equals("admin@admin.com")) {
 			// /jsp/member.jspに行く
 			response.sendRedirect(request.getContextPath() + "/member");
+			} else {
+				// /jsp/member.jspに行く
+				response.sendRedirect(request.getContextPath() + "/changePassword");
+			}
 		}
 
 	}

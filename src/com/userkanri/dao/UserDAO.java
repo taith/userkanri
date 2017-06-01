@@ -11,8 +11,44 @@ import com.userkanri.model.User;
 
 public class UserDAO {
 	
+	public static User findUser(Connection conn, int id, String role) throws SQLException {
+		String sql = "SELECT u.email FROM user AS u WHERE u.id = ? AND u.role = ?";
+		PreparedStatement prestate = null;
+		ResultSet result = null;
+		
+		try {
+			prestate = conn.prepareStatement(sql);
+			prestate.setInt(1, id);
+			prestate.setString(2, role);
+			result = prestate.executeQuery();
+			User user = new User();
+			if (result.next()) {
+				String email = result.getString("email");
+				user.setId(id);
+				user.setEmail(email);
+				return user;
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			if(result != null ){
+				result.close();
+			}
+			if(prestate != null) {
+				prestate.close();
+			}
+			if(conn != null) {
+				conn.close();
+			}
+		}
+		return null;
+	}
+	
+	
 	public static User findUser(Connection conn, String email, String password) throws SQLException {
-		String sql = "SELECT u.id, u.email, u.name FROM user AS u WHERE u.email = ? AND u.password + ?";
+		String sql = "SELECT u.id, u.email, u.name FROM user AS u WHERE u.email = ? AND u.password = ?";
 
 		PreparedStatement prestate = null;
 		ResultSet result = null;
